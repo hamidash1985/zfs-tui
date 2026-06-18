@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Linux executable via Docker
+        run: |
+          docker build -t zfs-tui-builder -f Dockerfile.build .
+          mkdir -p dist
+          docker run --rm \
+            -v "${{ github.workspace }}:/project" \
+            -v "${{ github.workspace }}/dist:/output" \
+            zfs-tui-builder
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zfs-tui-linux
+          path: dist/zfs-tui
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync --locked --dev
+
+      - name: Build Windows executable
+        run: uv run pyinstaller zfs-tui.spec --distpath dist --workpath build/pyinstaller --noconfirm
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zfs-tui-windows
+          path: dist/zfs-tui.exe
+
+  release:
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: zfs-tui-linux
+          path: release-artifacts
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: zfs-tui-windows
+          path: release-artifacts
+
+      - name: Rename artifacts with version
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          mv release-artifacts/zfs-tui     "release-artifacts/zfs-tui-${VERSION}-linux-amd64"
+          mv release-artifacts/zfs-tui.exe "release-artifacts/zfs-tui-${VERSION}-windows-amd64.exe"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-artifacts/*
+          generate_release_notes: true
