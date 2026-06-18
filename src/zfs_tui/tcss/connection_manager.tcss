@@ -1,0 +1,34 @@
+#connection-manager-layout {
+    height: 1fr;
+    padding: 1 2;
+}
+
+#cm-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#cm-hosts-title {
+    text-style: bold;
+    padding: 1 0 0 0;
+}
+
+#cm-add-title {
+    text-style: bold;
+    padding: 1 0 0 0;
+}
+
+#cm-buttons {
+    height: 3;
+    align: center middle;
+    margin: 1 0;
+}
+
+#add-btn, #connect-btn, #test-btn, #back-btn {
+    min-width: 16;
+}
+
+#cm-status {
+    padding: 1;
+    text-style: bold;
+}

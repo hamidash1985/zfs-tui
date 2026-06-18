@@ -1,0 +1,27 @@
+#confirm-container {
+    height: auto;
+    width: 60%;
+    margin: 4 20;
+    padding: 2;
+    border: thick $primary;
+    background: $surface;
+}
+
+#confirm-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+    color: $warning;
+}
+
+#confirm-message {
+    padding: 0 0 1 0;
+}
+
+#confirm-buttons {
+    height: 3;
+    align: center middle;
+}
+
+#yes-button, #no-button {
+    min-width: 16;
+}

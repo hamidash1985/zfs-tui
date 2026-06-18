@@ -1,0 +1,11 @@
+FROM python:3.14-slim-bookworm
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir uv
+
+WORKDIR /project
+
+ENTRYPOINT ["uv", "run", "pyinstaller", "zfs-tui.spec", "--distpath", "/output", "--workpath", "/tmp/pyinstaller", "--noconfirm"]

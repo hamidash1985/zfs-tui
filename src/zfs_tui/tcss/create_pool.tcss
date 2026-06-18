@@ -1,0 +1,23 @@
+#create-pool-layout {
+    height: 1fr;
+    padding: 1 2;
+}
+
+#create-pool-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#create-pool-buttons {
+    height: 3;
+    align: center middle;
+    margin: 1 0;
+}
+
+#create-btn {
+    min-width: 20;
+}
+
+#cancel-btn {
+    min-width: 20;
+}

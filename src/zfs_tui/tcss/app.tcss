@@ -1,0 +1,67 @@
+Screen {
+    background: $surface;
+}
+
+Header {
+    background: $primary;
+    color: $text;
+    text-style: bold;
+}
+
+Footer {
+    background: $panel;
+    color: $text-muted;
+}
+
+DataTable {
+    height: 1fr;
+    border: solid $primary;
+}
+
+DataTable > .datatable--header {
+    background: $primary-darken-1;
+    color: $text;
+    text-style: bold;
+}
+
+DataTable > .datatable--cursor {
+    background: $accent 30%;
+}
+
+Tree {
+    height: 1fr;
+    border: solid $primary;
+}
+
+Tree > .tree--cursor {
+    background: $accent 30%;
+}
+
+Input {
+    margin: 0 1;
+}
+
+Button {
+    margin: 0 1;
+}
+
+Select {
+    margin: 0 1;
+}
+
+Label {
+    margin: 0 1;
+    padding: 0 0;
+}
+
+Static {
+    margin: 0 1;
+}
+
+TabPane {
+    padding: 1;
+}
+
+TabbedContent {
+    height: 1fr;
+}

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environment
+.venv/
+
+# Build artifacts
+build/
+dist/
+wheels/
+*.whl
+
+# PyInstaller
+*.manifest
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Testing & coverage
+.coverage*
+htmlcov/
+.pytest_cache/
+coverage/
+
+# Linting & type checking
+.ruff_cache/
+.mypy_cache/
+
+

@@ -1,0 +1,37 @@
+[project]
+name = "zfs-tui"
+version = "0.1.0"
+description = "Terminal UI for ZFS pool and dataset management"
+authors = [
+    { name = "Hamid Ashraf", email = "hamid.ash1985@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "textual>=0.86.0",
+    "asyncssh>=2.18.0",
+]
+
+[project.scripts]
+zfs-tui = "zfs_tui.app:run"
+build-exe = "zfs_tui.build:main"
+
+[project.optional-dependencies]
+build = ["pyinstaller"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"zfs_tui" = ["tcss/*.tcss"]
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.21.0",
+]

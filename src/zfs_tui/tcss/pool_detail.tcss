@@ -1,0 +1,41 @@
+#pool-detail-layout {
+    height: 1fr;
+}
+
+#pool-detail-title {
+    background: $primary-darken-1;
+    color: $text;
+    text-style: bold;
+    padding: 0 2;
+    height: 1;
+}
+
+#pool-health-display {
+    padding: 1;
+    text-style: bold;
+}
+
+#pool-scan-status, #pool-errors {
+    padding: 0 1;
+    color: $text-muted;
+}
+
+#vdev-title {
+    padding: 1 1 0 1;
+    text-style: bold;
+}
+
+#prop-edit-row {
+    height: 3;
+    align: center middle;
+}
+
+#set-prop-btn {
+    min-width: 10;
+}
+
+#iostat-hint {
+    color: $text-muted;
+    text-style: italic;
+    padding: 0 1;
+}

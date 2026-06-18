@@ -1,0 +1,42 @@
+#host-indicator {
+    background: $primary-darken-2;
+    color: $text;
+    text-style: bold;
+    padding: 0 2;
+    height: 1;
+}
+
+#main-layout {
+    height: 1fr;
+}
+
+#pool-panel {
+    width: 50%;
+    height: 1fr;
+    border: solid $primary;
+}
+
+#dataset-panel {
+    width: 50%;
+    height: 1fr;
+    border: solid $primary;
+}
+
+#pool-panel-title, #dataset-panel-title {
+    background: $primary-darken-1;
+    color: $text;
+    text-style: bold;
+    padding: 0 1;
+    height: 1;
+}
+
+#pool-actions, #dataset-actions {
+    background: $panel;
+    color: $text-muted;
+    height: 1;
+    padding: 0 1;
+}
+
+#pool-table, #dataset-tree {
+    height: 1fr;
+}

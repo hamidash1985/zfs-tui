@@ -1,0 +1,23 @@
+#create-dataset-layout {
+    height: 1fr;
+    padding: 1 2;
+}
+
+#create-dataset-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+#create-dataset-buttons {
+    height: 3;
+    align: center middle;
+    margin: 1 0;
+}
+
+#create-btn {
+    min-width: 20;
+}
+
+#cancel-btn {
+    min-width: 20;
+}
